@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+{% block body %}
+<div class="container">
+<p>
+{{article.content|safe}}
+</p>
+</div>
+
+{% endblock body %}
+
+{% block footer %}
+{% include 'footer.html' %}
+
+{% endblock footer %}

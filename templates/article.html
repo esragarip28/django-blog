@@ -1,0 +1,69 @@
+
+{% extends 'layout.html' %}
+{% block container %}
+
+{% block body %}
+    <div class="container py-5">
+
+      <div class="row">
+
+        <div class="col-sm-8 blog-main">
+
+          <div class="blog-post">
+            <h2 class="blog-post-title">{{article.title}}</h2>
+            <p class="blog-post-meta">{{article.created_date}} <a href="#">Mark</a></p>
+            <p>{{article.content |safe}}</p>
+
+          </div>
+           </div> 
+           </div>
+
+  
+            </div>
+  
+    <!-- /.blog-post -->
+    
+      {% if comments %}
+       {% for comment in comments  %}
+
+         <div class="media mb-4">
+          <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+          <div class="media-body">
+            <h5 class="mt-0">{{request.user}}</h5>
+            {{comment.comment_content}}
+           
+          </div>
+        </div>
+       
+       {% endfor %}
+     
+
+      {% else %}
+      <div class=" alert alert-danger">
+        <p>Makaleye ait henüz herhangi bir yorum bulunmamaktadır...</p>
+        </div>
+      
+      {% endif %}
+        <div class="card my-4">
+          <h5 class="card-header">Leave a Comment:</h5>
+          <div class="card-body">
+            <form method="Post" action="/comment/{{article.id}}">
+                {% csrf_token %}
+              <div class="form-group">
+                <textarea class="form-control" rows="3" name="comment_content"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+        </div>
+  
+ 
+
+
+
+{% endblock body %}
+{% block footer %}
+{% include 'footer.html' %}
+{% endblock footer %}
+
+{% endblock container %}

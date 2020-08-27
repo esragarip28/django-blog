@@ -1,0 +1,44 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+{% for article in articles %}
+
+<!-- Card -->
+
+  <!-- Card content -->
+  <div class="card-body card-body-cascade text-center">
+
+    <!-- Title -->
+    
+    <h4 class="card-title"><strong>{{article.title}}</strong></h4>
+    <!-- Subtitle -->
+    <h6 class="font-weight-bold indigo-text py-2">{{article.author}}</h6>
+    <!-- Text -->
+    <p class="card-text">
+    {{article.content |safe |truncatewords:50}}
+    </p>
+
+    <!-- Linkedin -->
+    <a class="px-2 fa-lg li-ic"><i class="fab fa-linkedin-in"></i></a>
+    <!-- Twitter -->
+    <a class="px-2 fa-lg tw-ic"><i class="fab fa-twitter"></i></a>
+    <!-- Dribbble -->
+    <a class="px-2 fa-lg fb-ic"><i class="fab fa-facebook-f"></i></a>
+
+  </div>
+
+</div>
+<!-- Card -->
+<div class="row justify-content-center">
+  <a href='/article/{{article.id}}' class="btn btn-success center">Read More</a>
+</div>
+
+{% endfor %}
+{% endblock body %}
+{% block footer %}
+{% include 'footer.html' %}
+
+{% endblock footer %}
+
+

@@ -1,0 +1,11 @@
+.footer-style {
+    background-color: black;
+    color: white;
+    padding-top: 5%;
+    padding-left: 2%;
+}
+
+.index-image {
+    background-size: cover;
+    background-repeat: no-repeat;
+}
